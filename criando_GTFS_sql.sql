@@ -58,7 +58,8 @@ CREATE TABLE gtfs.shapes (
   shape_id text NOT NULL,
   shape_pt_lat double precision NOT NULL,
   shape_pt_lon double precision NOT NULL,
-  shape_pt_sequence int NOT NULL
+  shape_pt_sequence int NOT NULL,
+  shape_dist_traveled DECIMAL(14,8)
 );
 CREATE INDEX shapes_shape_key ON gtfs.shapes (shape_id);
 
