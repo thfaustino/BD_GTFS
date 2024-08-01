@@ -136,6 +136,14 @@ INSERT INTO gtfs.stop_type (stop_type_code,stop_type_desc) VALUES
 	('PR','Ponto de Retorno'),
 	('PC','Ponto de Controle');
 
+	
+CREATE TABLE gtfs.stop_vs_subroutes(
+	route_id int REFERENCES gtfs.routes(route_id),
+	subroute_id int DEFAULT 1,
+	stop_id int REFERENCES gtfs.stops(stop_id),
+	stop_type varchar REFERENCES gtfs.stop_type (stop_type_code),
+	stop_sequence int NOT NULL CHECK (stop_type IN('PC1','PC2') AND stop_sequence=1)
+);
 
 INSERT INTO gtfs.exception_types (exception_type, description) VALUES
 (1, 'service has been added'),
