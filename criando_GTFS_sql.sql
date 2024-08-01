@@ -126,6 +126,17 @@ CREATE TABLE gtfs.trips (
 );
 CREATE INDEX trips_trip_id ON gtfs.trips (trip_id);
 
+CREATE TABLE gtfs.stop_type(
+	stop_type_code VARCHAR(3) PRIMARY KEY,
+	stop_type_desc VARCHAR(20)
+);
+
+INSERT INTO gtfs.stop_type (stop_type_code,stop_type_desc) VALUES
+	('PED','Ponto de Embarque e Desembarque'),
+	('PR','Ponto de Retorno'),
+	('PC','Ponto de Controle');
+
+
 INSERT INTO gtfs.exception_types (exception_type, description) VALUES
 (1, 'service has been added'),
 (2, 'service has been removed');
